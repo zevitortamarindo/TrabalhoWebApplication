@@ -48,6 +48,14 @@ def save():
         escritor.writerows(musicas)
     return redirect(url_for('index'))
 
+@app.route('/delete/<id>')
+def delete(id):
+    idMusica = id
+    for musica in musicas:
+        if(str(musica.get('id')) == idMusica):
+            musicas.remove(musica)
+    return render_template('index.html', musicas=musicas)
+
 
 
 app.run(debug = True)
