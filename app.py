@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from uuid import uuid4
 
 app = Flask(__name__)
@@ -18,6 +18,17 @@ def index():
 @app.route('/create')
 def create():
     return render_template('create.html')
+
+@app.route('/save', methods=['POST'])
+def save():
+    artista = request.form['artista']
+    titulo = request.form['titulo']
+    ano = request.form['ano']
+    album = request.form['album']
+    reproducoes = request.form['reproducoes']
+    musicas.append({"id": uuid4(), "artista": artista, "titulo": titulo, "ano": ano, "album": album, "reproducoes": reproducoes})
+    return redirect(url_for('index'))
+
 
 
 app.run(debug = True)

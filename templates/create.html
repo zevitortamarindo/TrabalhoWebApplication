@@ -8,29 +8,29 @@
     <title>Nova Música</title>
 </head>
 <body>
-    <div>
+    <div class="container">
         <form action="/save" method="POST">
-            <div>
+            <div class = "mb-3">
                 <label>Artista</label>
-                <input type="text" name="artista" required="true"/>
+                <input type="text" name="artista" required="true" class="form-control"/>
             </div>
-            <div>
+            <div class = "mb-3">
                 <label>Música</label>
-                <input type="text" name="titulo" required="true"/>
+                <input type="text" name="titulo" required="true" class="form-control"/>
             </div>
-            <div>
+            <div class = "mb-3">
                 <label>Ano</label>
-                <input type="number" name="ano"/>
+                <input type="number" name="ano" class="form-control"/>
             </div>
-            <div>
+            <div class = "mb-3">
                 <label>Álbum</label>
-                <input type="text" name="album"/>
+                <input type="text" name="album" class="form-control"/>
             </div>
-            <div>
+            <div class = "mb-3">
                 <label>Reproduções</label>
-                <input type="text" name="reproducoes"/>
+                <input type="text" name="reproducoes" class="form-control"/>
             </div>
-            <button>Salvar</button>
+            <button class="btn btn-success" style = "margin-top: 20px">Salvar</button>
         </form>
     </div>
 </body>

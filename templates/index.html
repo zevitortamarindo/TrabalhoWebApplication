@@ -8,9 +8,9 @@
     <title>Músicas Show de Bola</title>
 </head>
 <body>
-    <div>
-        <table>
-            <thead>
+    <div class="container">
+        <table class="table table-success table-striped">
+            <thead class="table-dark">
                 <tr>
                     <th>Artistas</th>
                     <th>Música</th>
@@ -29,12 +29,12 @@
                     <td>{{musica['ano']}}</td>
                     <td>{{musica['album']}}</td>
                     <td>{{musica['reproducoes']}}</td>
-                    <td><a href='#'>Editar</a></td>
-                    <td><a href="#">Excluir</a></td>
+                    <td><a href='#' class="btn btn-light">Editar</a></td>
+                    <td><a href="#" class="btn btn-danger">Excluir</a></td>
                 </tr>
             {% endfor %}
         </table>
-        <a href="/create">Adicionar</a>
+        <a href="/create" class="btn btn-info">Adicionar</a>
     </div>
 </body>
 </html>
