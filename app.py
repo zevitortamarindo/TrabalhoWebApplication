@@ -52,7 +52,7 @@ def save():
 def delete(id):
     idMusica = id
     for musica in musicas:
-        if(str(musica.get('id')) == idMusica):
+        if(str(musica.get('id')) == str(idMusica)):
             musicas.remove(musica)
     with open('musicas.csv', 'wt') as file_out:
         escritor = csv.DictWriter(file_out, ['id', 'artista', 'titulo', 'ano', 'album', 'reproducoes']) 
@@ -87,6 +87,10 @@ def save_edit():
             musica['ano'] = ano_edit
             musica['album'] = album_edit.title()
             musica['reproducoes'] = reproducoes_edit
+    with open('musicas.csv', 'wt') as file_out:
+        escritor = csv.DictWriter(file_out, ['id', 'artista', 'titulo', 'ano', 'album', 'reproducoes']) 
+        escritor.writeheader()
+        escritor.writerows(musicas)
 
     return redirect(url_for('index'))
 
