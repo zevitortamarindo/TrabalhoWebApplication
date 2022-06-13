@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Músicas Show de Bola</title>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Artistas</th>
+                    <th>Música</th>
+                    <th>Ano</th>
+                    <th>Álbum</th>
+                    <th>Reproduções</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            
+            {% for musica in musicas %}        
+                <tr>
+                    <td>{{musica['artista']}}</td>
+                    <td>{{musica['titulo']}}</td>
+                    <td>{{musica['ano']}}</td>
+                    <td>{{musica['album']}}</td>
+                    <td>{{musica['reproducoes']}}</td>
+                    <td><a href='#'>Editar</a></td>
+                    <td><a href="#">Excluir</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="/create">Adicionar</a>
+    </div>
+</body>
+</html>
