@@ -5,33 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <title>Nova Música</title>
+    <title>Editar</title>
 </head>
 <body>
     <div class="container">
-        <form action="/save" method="POST">
+        <form action="/save-edit" method="POST">
+            <div class = "mb-3">
+                <label>id</label>
+                <input type="text" name="id_new" required="true" class="form-control" value="{{musica['id']}}" readonly/>
+            </div>
             <div class = "mb-3">
                 <label>Artista</label>
-                <input type="text" name="artista" required="true" class="form-control"/>
+                <input type="text" name="artista_new" required="true" class="form-control" value="{{musica['artista']}}"/>
             </div>
             <div class = "mb-3">
                 <label>Música</label>
-                <input type="text" name="titulo" required="true" class="form-control"/>
+                <input type="text" name="titulo_new" required="true" class="form-control" value="{{musica['titulo']}}"/>
             </div>
             <div class = "mb-3">
                 <label>Ano</label>
-                <input type="number" name="ano" class="form-control"/>
+                <input type="number" name="ano_new" class="form-control" value="{{musica['ano']}}"/>
             </div>
             <div class = "mb-3">
                 <label>Álbum</label>
-                <input type="text" name="album" class="form-control"/>
+                <input type="text" name="album_new" class="form-control" value="{{musica['album']}}"/>
             </div>
             <div class = "mb-3">
                 <label>Reproduções</label>
-                <input type="text" name="reproducoes" class="form-control"/>
+                <input type="text" name="reproducoes_new" class="form-control" value="{{musica['reproducoes']}}"/>
             </div>
             <a href="/" class="btn btn-primary" style="margin-top: 20px">Voltar</a>
-            <button class="btn btn-success" style = "margin-top: 20px">Salvar</button>
+            <button class="btn btn-success" style="margin-top: 20px">Salvar</button>
         </form>
     </div>
 </body>

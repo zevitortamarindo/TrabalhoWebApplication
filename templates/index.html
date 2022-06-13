@@ -29,7 +29,7 @@
                     <td>{{musica['ano']}}</td>
                     <td>{{musica['album']}}</td>
                     <td>{{musica['reproducoes']}}</td>
-                    <td><a href='#' class="btn btn-light">Editar</a></td>
+                    <td><a href="/edit/{{musica['id']}}" class="btn btn-light">Editar</a></td>
                     <td><a href="/delete/{{musica['id']}}" class="btn btn-danger">Excluir</a></td>
                 </tr>
             {% endfor %}

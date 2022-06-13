@@ -41,7 +41,7 @@ def save():
     ano = request.form['ano']
     album = request.form['album']
     reproducoes = request.form['reproducoes']
-    musicas.append({"id": uuid4(), "artista": artista, "titulo": titulo, "ano": ano, "album": album, "reproducoes": reproducoes})
+    musicas.append({"id": uuid4(), "artista": artista.title(), "titulo": titulo.title(), "ano": ano, "album": album.title(), "reproducoes": reproducoes})
     with open('musicas.csv', 'wt') as file_out:
         escritor = csv.DictWriter(file_out, ['id', 'artista', 'titulo', 'ano', 'album', 'reproducoes']) 
         escritor.writeheader()
@@ -54,7 +54,41 @@ def delete(id):
     for musica in musicas:
         if(str(musica.get('id')) == idMusica):
             musicas.remove(musica)
+    with open('musicas.csv', 'wt') as file_out:
+        escritor = csv.DictWriter(file_out, ['id', 'artista', 'titulo', 'ano', 'album', 'reproducoes']) 
+        escritor.writeheader()
+        escritor.writerows(musicas)
+    
     return render_template('index.html', musicas=musicas)
+
+@app.route('/edit/<id>')
+def edit(id):
+    for musica in musicas:
+        if str(musica['id']) == str(id):
+            musica_selecionada = musica
+
+    return render_template('edit_musica.html', musica=musica_selecionada)
+    
+    
+
+@app.route('/save-edit', methods=['POST'])
+def save_edit():
+    id_edit = request.form['id_new']
+    artista_edit = request.form['artista_new']
+    titulo_edit = request.form['titulo_new']
+    ano_edit = request.form['ano_new']
+    album_edit = request.form['album_new']
+    reproducoes_edit = request.form['reproducoes_new']
+
+    for musica in musicas:
+        if str(musica['id']) == str(id_edit):
+            musica['artista'] = artista_edit.title()
+            musica['titulo'] = titulo_edit.title()
+            musica['ano'] = ano_edit
+            musica['album'] = album_edit.title()
+            musica['reproducoes'] = reproducoes_edit
+
+    return redirect(url_for('index'))
 
 
 
