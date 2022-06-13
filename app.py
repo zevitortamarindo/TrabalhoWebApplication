@@ -96,4 +96,4 @@ def save_edit():
 
 
 
-app.run(debug = True)
+app.run()
